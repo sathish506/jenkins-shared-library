@@ -1,3 +1,11 @@
+def lintchecks() {
+    sh "echo Installing JSlist"
+                sh "npm i jslint"
+                sh "echo starting link checks......"
+                sh "node_modules/jslint/bin/jslint.js server.js || true"
+                sh "echo link checks completed"
+    }
+
 def call() {
   pipeline {
     agent any 
@@ -5,13 +13,9 @@ def call() {
         stage('Lint Checks') {
             steps {
              script {
-                sample.info("Learn DevOps With Cloud")
+                lintchecks()
              }
-                sh "echo Installing JSlist"
-                sh "npm i jslint"
-                sh "echo starting link checks......"
-                sh "node_modules/jslint/bin/jslint.js server.js || true"
-                sh "echo link checks completed"
+                
             }
         }
 
