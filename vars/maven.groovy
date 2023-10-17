@@ -20,7 +20,7 @@ def call() {
 
         stage('Generating artifacts') {
             steps {
-                sh "echo Generating artifacts for $COMPONENT"
+                sh "echo Generating artifacts for ${COMPONENT}"
                 sh "mvn clean package"
 
                 }
