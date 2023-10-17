@@ -20,8 +20,8 @@ def call() {
 
         stage('Generating artifacts') {
             steps {
-                sh "echo Generating artifacts"
-                sh "npm install"
+                sh "echo Generating artifacts for $COMPONENT"
+                sh "mvn clean package"
 
                 }
             }
